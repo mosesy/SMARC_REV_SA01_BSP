@@ -567,10 +567,10 @@ static int imx6_pcie_start_link(struct pcie_port *pp)
 		return ret;
 
 	/* Allow Gen2 mode after the link is up. */
-	tmp = readl(pp->dbi_base + PCIE_RC_LCR);
-	tmp &= ~PCIE_RC_LCR_MAX_LINK_SPEEDS_MASK;
-	tmp |= PCIE_RC_LCR_MAX_LINK_SPEEDS_GEN2;
-	writel(tmp, pp->dbi_base + PCIE_RC_LCR);
+	//tmp = readl(pp->dbi_base + PCIE_RC_LCR);
+	//tmp &= ~PCIE_RC_LCR_MAX_LINK_SPEEDS_MASK;
+	//tmp |= PCIE_RC_LCR_MAX_LINK_SPEEDS_GEN2;
+	//writel(tmp, pp->dbi_base + PCIE_RC_LCR);
 
 	/*
 	 * Start Directed Speed Change so the best possible speed both link

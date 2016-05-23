@@ -523,6 +523,10 @@ config TARGET_MX6SABRESD
 	select CPU_V7
 	select SUPPORT_SPL
 
+config TARGET_MX6SMARC
+	bool "Support mx6smarc"
+	select CPU_V7
+
 config TARGET_MX6SLEVK
 	bool "Support mx6slevk"
 	select CPU_V7
@@ -871,6 +875,7 @@ source "board/freescale/mx53smd/Kconfig"
 source "board/freescale/mx6qarm2/Kconfig"
 source "board/freescale/mx6qsabreauto/Kconfig"
 source "board/freescale/mx6sabresd/Kconfig"
+source "board/freescale/mx6smarc/Kconfig"
 source "board/freescale/mx6slevk/Kconfig"
 source "board/freescale/mx6sxsabresd/Kconfig"
 source "board/freescale/mx6sxsabreauto/Kconfig"
