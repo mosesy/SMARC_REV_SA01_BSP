@@ -20,6 +20,11 @@ if [ $1 == "menuconfig" ]; then
 	exit;
 fi
 
+if [ $1 == "xconfig" ]; then
+	make ARCH=$ARCH CROSS_COMPILE=$CROSS_COMPILE $1
+	exit;
+fi
+
 make ARCH=$ARCH CROSS_COMPILE=$CROSS_COMPILE imx_v7_defconfig
 make ARCH=$ARCH CROSS_COMPILE=$CROSS_COMPILE $1
 

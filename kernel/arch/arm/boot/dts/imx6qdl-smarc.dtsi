@@ -295,7 +295,7 @@
 		interrupt-route = <1>;
 	};
 
-pmic: pfuze100@08 {
+    pmic: pfuze100@08 {
 		compatible = "fsl,pfuze100";
 		reg = <0x08>;
 
@@ -398,6 +398,12 @@ pmic: pfuze100@08 {
 	rx8010@32 {
 		compatible = "epson,rx8010";
 		reg = <0x32>;
+	};
+
+    tca9555@20 {
+		compatible = "nxp,tca9555";
+		reg = <0x20>;
+		gpio-controller;
 	};
 };
 
@@ -550,7 +556,7 @@ pmic: pfuze100@08 {
 			>;
 		};
 
-		pinctrl_uart1: uart1grp {
+        pinctrl_uart1: uart1grp {
 			fsl,pins = <
 				MX6QDL_PAD_CSI0_DAT10__UART1_TX_DATA	0x1b0b1
 				MX6QDL_PAD_CSI0_DAT11__UART1_RX_DATA	0x1b0b1
@@ -558,7 +564,7 @@ pmic: pfuze100@08 {
 			>;
 		};
 
-		pinctrl_uart2: uart2grp {
+        pinctrl_uart2: uart2grp {
 			fsl,pins = <
 				MX6QDL_PAD_EIM_D26__UART2_TX_DATA	0x1b0b1
 				MX6QDL_PAD_EIM_D27__UART2_RX_DATA	0x1b0b1

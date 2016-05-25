@@ -49,3 +49,11 @@
 &sata {
 	status = "okay";
 };
+
+&can1 {
+    status = "okay";
+};
+
+&can2 {
+    status = "okay";
+};
