@@ -91,6 +91,18 @@
 			gpio = <&gpio6 14 0>;
 			enable-active-high;
 		};
+
+        reg_lvds_en: lvds_en {
+            compatible = "regulator-fixed";
+            regulator-name = "lvds_en";
+            gpio = <&gpio2 22 GPIO_ACTIVE_HIGH>;
+        };
+
+        reg_lvds_bkl_en: lvds_bkl_en {
+            compatible = "regulator-fixed";
+            regulator-name = "lvds_bkl_en";
+            gpio = <&gpio3 00 GPIO_ACTIVE_HIGH>;
+        };
 	};
 
 	sound {
@@ -245,7 +257,7 @@
 
 &dcic2 {
 	dcic_id = <1>;
-	dcic_mux = "dcic-lvds1";
+	dcic_mux = "dcic-lvds0";
 	status = "okay";
 };
 
@@ -572,6 +584,13 @@
 			>;
 		};
 
+        pinctrl_lvds: lvdsengrp {
+            fsl,pins = <
+                MX6QDL_PAD_EIM_A16__GPIO2_IO22      0x80000000
+                MX6QDL_PAD_EIM_DA0__GPIO3_IO00      0x80000000
+            >;
+        };
+
         pinctrl_uart1: uart1grp {
 			fsl,pins = <
 				MX6QDL_PAD_CSI0_DAT10__UART1_TX_DATA	0x1b0b1
@@ -651,20 +670,21 @@
 	lvds-channel@0 {
 		fsl,data-mapping = "spwg";
 		fsl,data-width = <18>;
-		status = "okay";
+        primary;
+        status = "okay";
 
 		display-timings {
 			native-mode = <&timing0>;
 			timing0: hsd100pxn1 {
-				clock-frequency = <65000000>;
-				hactive = <1024>;
-				vactive = <768>;
-				hback-porch = <220>;
-				hfront-porch = <40>;
-				vback-porch = <21>;
-				vfront-porch = <7>;
-				hsync-len = <60>;
-				vsync-len = <10>;
+                clock-frequency = <25000000>;
+                hactive = <640>;
+                vactive = <480>;
+                hback-porch = <1 114 139>;
+                hfront-porch = <1 16 116>;
+                vback-porch = <30 32 34>;
+                vfront-porch = <1 10 45>;
+                hsync-len = <5 30 5>;
+                vsync-len = <1 3 5>;
 			};
 		};
 	};
@@ -672,22 +692,21 @@
 	lvds-channel@1 {
 		fsl,data-mapping = "spwg";
 		fsl,data-width = <18>;
-		primary;
-		status = "okay";
+        status = "okay";
 
 		display-timings {
 			native-mode = <&timing1>;
 			timing1: hsd100pxn1 {
-				clock-frequency = <65000000>;
-				hactive = <1024>;
-				vactive = <768>;
-				hback-porch = <220>;
-				hfront-porch = <40>;
-				vback-porch = <21>;
-				vfront-porch = <7>;
-				hsync-len = <60>;
-				vsync-len = <10>;
-			};
+                clock-frequency = <25000000>;
+                hactive = <640>;
+                vactive = <480>;
+                hback-porch = <1 114 139>;
+                hfront-porch = <1 16 116>;
+                vback-porch = <30 32 34>;
+                vfront-porch = <1 10 45>;
+                hsync-len = <5 30 5>;
+                vsync-len = <1 3 5>;
+            };
 		};
 	};
 };
@@ -719,7 +738,7 @@
 
 &pwm1 {
 	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_pwm1>;
+    pinctrl-0 = <&pinctrl_pwm1 &pinctrl_lvds>;
 	status = "okay";
 };
 
