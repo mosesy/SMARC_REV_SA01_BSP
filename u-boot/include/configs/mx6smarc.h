@@ -22,18 +22,37 @@
 #define CONFIG_MXC_UART_BASE	UART1_BASE
 #define CONFIG_CONSOLE_DEV		"ttymxc0"
 #define CONFIG_MMCROOT			"/dev/mmcblk2p2"  /* SDHC3 */
-#if defined(CONFIG_MX6QP)
-#define CONFIG_DEFAULT_FDT_FILE	"imx6qp-sabresd.dtb"
-#define PHYS_SDRAM_SIZE		(1u * 1024 * 1024 * 1024)
-#elif defined(CONFIG_MX6Q)
-#define CONFIG_DEFAULT_FDT_FILE	"imx6q-rev-sa01-pfuze100.dtb"
-#define PHYS_SDRAM_SIZE		(1u * 1024 * 1024 * 1024)
-#elif defined(CONFIG_MX6DL)
-#define CONFIG_DEFAULT_FDT_FILE	"imx6solo-rev-sa01-pfuze100.dtb"
-#define PHYS_SDRAM_SIZE		(1u * 1024 * 1024 * 1024)
-#elif defined(CONFIG_MX6SOLO)
-#define CONFIG_DEFAULT_FDT_FILE	"imx6solo-rev-sa01-pfuze100.dtb"
-#define PHYS_SDRAM_SIZE		(512u * 1024 * 1024)
+
+#if defined(CONFIG_SMARC_PCIE_PFUZE100)
+    #if defined(CONFIG_MX6Q)
+        #define CONFIG_DEFAULT_FDT_FILE "imx6q-rev-sa01-pfuze100.dtb"
+        #define PHYS_SDRAM_SIZE         (1u * 1024 * 1024 * 1024)
+
+    #elif defined(CONFIG_MX6DL)
+        #define CONFIG_DEFAULT_FDT_FILE	"imx6solo-rev-sa01-pfuze100.dtb"
+        #define PHYS_SDRAM_SIZE         (1u * 1024 * 1024 * 1024)
+
+    #elif defined(CONFIG_MX6SOLO)
+        #define CONFIG_DEFAULT_FDT_FILE	"imx6solo-rev-sa01-pfuze100.dtb"
+        #define PHYS_SDRAM_SIZE         (512u * 1024 * 1024)
+
+    #endif
+
+#elif defined(CONFIG_SMARC_PCIE_WM8326)
+    #if defined(CONFIG_MX6Q)
+        #define CONFIG_DEFAULT_FDT_FILE	"imx6q-rev-sa01-wm8326.dtb"
+        #define PHYS_SDRAM_SIZE         (1u * 1024 * 1024 * 1024)
+
+    #elif defined(CONFIG_MX6DL)
+        #define CONFIG_DEFAULT_FDT_FILE	"imx6solo-rev-sa01-wm8326.dtb"
+        #define PHYS_SDRAM_SIZE         (1u * 1024 * 1024 * 1024)
+
+    #elif defined(CONFIG_MX6SOLO)
+        #define CONFIG_DEFAULT_FDT_FILE	"imx6solo-rev-sa01-wm8326.dtb"
+        #define PHYS_SDRAM_SIZE         (512u * 1024 * 1024)
+
+    #endif
+
 #endif
 
 #include "mx6smarc_common.h"
@@ -70,8 +89,8 @@
 /* PMIC */
 #define CONFIG_POWER
 #define CONFIG_POWER_I2C
-#define CONFIG_POWER_PFUZE100
-#define CONFIG_POWER_PFUZE100_I2C_ADDR	0x08
+/*#define CONFIG_POWER_PFUZE100*/
+/*#define CONFIG_POWER_PFUZE100_I2C_ADDR	0x08*/
 
 /* USB Configs */
 #define CONFIG_CMD_USB

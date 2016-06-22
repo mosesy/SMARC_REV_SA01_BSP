@@ -15,40 +15,50 @@ kernel: kernel.bin
 kernel.bin: cleankernel
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C kernel/ imx_v7_defconfig
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C kernel/
+
 	mkdir -p out
+
 	install kernel/arch/arm/boot/zImage out/zImage
 	install kernel/arch/arm/boot/dts/imx6q-rev-sa01-pfuze100.dtb out/imx6q-rev-sa01-pfuze100.dtb
 	install kernel/arch/arm/boot/dts/imx6solo-rev-sa01-pfuze100.dtb out/imx6solo-rev-sa01-pfuze100.dtb
+	install kernel/arch/arm/boot/dts/imx6q-rev-sa01-wm8326.dtb out/imx6q-rev-sa01-wm8326.dtb
+	install kernel/arch/arm/boot/dts/imx6solo-rev-sa01-wm8326.dtb out/imx6solo-rev-sa01-wm8326.dtb
 
 ##########
 # U-Boot #
 ##########
 uboot.bin: cleanuboot
 	mkdir -p out
+
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ distclean
-	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ mx6qsmarc_defconfig
+	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ mx6qsmarc_pfuze100_defconfig
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/
-	install u-boot/u-boot.imx out/u-boot-6q-p.imx
+	install u-boot/u-boot.imx out/u-boot-6q-pfuze100.imx
+
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ distclean
-	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ mx6qsmarc_defconfig
+	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ mx6solosmarc_pfuze100_defconfig
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/
-	install u-boot/u-boot.imx out/u-boot-6q.imx
+	install u-boot/u-boot.imx out/u-boot-6solo-pfuze100.imx
+
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ distclean
-	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ mx6solosmarc_defconfig
+	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ mx6dlsmarc_pfuze100_defconfig
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/
-	install u-boot/u-boot.imx out/u-boot-6solo-p.imx
+	install u-boot/u-boot.imx out/u-boot-6dl-pfuze100.imx
+
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ distclean
-	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ mx6solosmarc_defconfig
+	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ mx6qsmarc_wm8326_defconfig
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/
-	install u-boot/u-boot.imx out/u-boot-6solo.imx
+	install u-boot/u-boot.imx out/u-boot-6q-wm8326.imx
+
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ distclean
-	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ mx6dlsmarc_defconfig
+	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ mx6solosmarc_wm8326_defconfig
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/
-	install u-boot/u-boot.imx out/u-boot-6dl-p.imx
+	install u-boot/u-boot.imx out/u-boot-6solo-wm8326.imx
+
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ distclean
-	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ mx6dlsmarc_defconfig
+	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ mx6dlsmarc_wm8326_defconfig
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/
-	install u-boot/u-boot.imx out/u-boot-6dl.imx
+	install u-boot/u-boot.imx out/u-boot-6dl-wm8326.imx
 
 clean:
 	$(MAKE) CROSS_COMPILE=$(CROSS_COMPILE) -C u-boot/ distclean

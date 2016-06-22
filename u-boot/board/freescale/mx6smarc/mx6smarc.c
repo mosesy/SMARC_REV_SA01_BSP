@@ -981,6 +981,8 @@ int board_init(void)
     return 0;
 }
 
+#ifdef CONFIG_POWER_PFUZE100
+
 static struct pmic *pfuze;
 int power_init_board(void)
 {
@@ -1064,9 +1066,14 @@ int power_init_board(void)
     return 0;
 }
 
+#endif
+
 #ifdef CONFIG_LDO_BYPASS_CHECK
 void ldo_mode_set(int ldo_bypass)
 {
+
+#ifdef CONFIG_POWER_PFUZE100)
+
     unsigned int value;
     int is_400M;
     unsigned char vddarm;
@@ -1172,6 +1179,9 @@ void ldo_mode_set(int ldo_bypass)
         finish_anatop_bypass();
         printf("switch to ldo_bypass mode!\n");
     }
+
+#endif
+
 }
 #endif
 

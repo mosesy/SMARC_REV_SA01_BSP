@@ -13,7 +13,7 @@
 /dts-v1/;
 
 #include "imx6dl.dtsi"
-#include "imx6qdl-smarc-pfuze100.dtsi"
+#include "imx6qdl-smarc-wm8326.dtsi"
 
 / {
 	model = "Freescale i.MX6 SOLO SMARC REV-SA01 Device Board";
