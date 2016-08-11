@@ -53,6 +53,18 @@
 
     #endif
 
+#elif defined(CONFIG_SMARC_PCIE_PFUZE100_2G)
+    #if defined(CONFIG_MX6Q)
+        #define CONFIG_DEFAULT_FDT_FILE "imx6q-rev-sa01-pfuze100.dtb"
+        #define PHYS_SDRAM_SIZE         (2u * 1024 * 1024 * 1024)
+    #endif
+
+#elif defined(CONFIG_SMARC_PCIE_WM8326_2G)
+    #if defined(CONFIG_MX6Q)
+        #define CONFIG_DEFAULT_FDT_FILE	"imx6q-rev-sa01-wm8326.dtb"
+        #define PHYS_SDRAM_SIZE         (2u * 1024 * 1024 * 1024)
+    #endif
+
 #endif
 
 #include "mx6smarc_common.h"

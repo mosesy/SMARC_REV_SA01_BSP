@@ -2,7 +2,6 @@
 
 ARCH=arm
 CROSS_COMPILE=../fsl/bin/arm-fsl-linux-gnueabi-
-JOBS=$1
 
 if [ $1 == "distclean" ]; then
     make ARCH=$ARCH CROSS_COMPILE=$CROSS_COMPILE distclean
@@ -31,9 +30,8 @@ if [ ! -d ../out ]; then
     mkdir ../out
 fi
 
-install arch/arm/boot/zImage                                ../out/zImage
-install arch/arm/boot/dts/imx6q-rev-sa01-pfuze100.dtb       ../out/imx6q-rev-sa01-pfuze100.dtb
-install arch/arm/boot/dts/imx6solo-rev-sa01-pfuze100.dtb    ../out/imx6solo-rev-sa01-pfuze100.dtb
-install arch/arm/boot/dts/imx6q-rev-sa01-wm8326.dtb         ../out/imx6q-rev-sa01-wm8326.dtb
-install arch/arm/boot/dts/imx6solo-rev-sa01-wm8326.dtb      ../out/imx6solo-rev-sa01-wm8326.dtb
-
+cp ./arch/arm/boot/zImage                                ../out/zImage
+cp ./arch/arm/boot/dts/imx6q-rev-sa01-pfuze100.dtb       ../out/imx6q-rev-sa01-pfuze100.dtb
+cp ./arch/arm/boot/dts/imx6solo-rev-sa01-pfuze100.dtb    ../out/imx6solo-rev-sa01-pfuze100.dtb
+cp ./arch/arm/boot/dts/imx6q-rev-sa01-wm8326.dtb         ../out/imx6q-rev-sa01-wm8326.dtb
+cp ./arch/arm/boot/dts/imx6solo-rev-sa01-wm8326.dtb      ../out/imx6solo-rev-sa01-wm8326.dtb

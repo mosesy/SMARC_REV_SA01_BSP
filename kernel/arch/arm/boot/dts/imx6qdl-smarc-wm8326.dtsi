@@ -135,7 +135,7 @@
 		hdmi-controller = <&hdmi_audio>;
 	};
 
-    mxcfb3: fb@2 {
+    mxcfb1: fb@0 {
 		compatible = "fsl,mxc_sdc_fb";
 		disp_dev = "hdmi";
 		interface_pix_fmt = "RGB24";
@@ -157,7 +157,7 @@
 		status = "disabled";
 	};
 
-    mxcfb1: fb@0 {
+    mxcfb3: fb@2 {
 		compatible = "fsl,mxc_sdc_fb";
 		disp_dev = "ldb";
         interface_pix_fmt = "RGB666";
