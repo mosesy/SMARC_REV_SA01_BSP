@@ -193,6 +193,7 @@
 	"boot_fdt=try\0" \
 	"ip_dyn=yes\0" \
 	"console=" CONFIG_CONSOLE_DEV "\0" \
+    "displayinfo=video=mxcfb0:dev=hdmi,1920x1080M@60,if=RGB24\0" \
 	"fdt_high=0xffffffff\0"	  \
 	"initrd_high=0xffffffff\0" \
 	"mmcdev=" __stringify(CONFIG_SYS_MMC_ENV_DEV) "\0" \
@@ -215,6 +216,7 @@
 	EMMC_ENV	  \
 	"smp=" CONFIG_SYS_NOSMP "\0"\
 	"mmcargs=setenv bootargs console=${console},${baudrate} ${smp} " \
+    "${displayinfo} " \
 		"root=${mmcroot}\0" \
 	"loadbootscript=" \
 		"fatload mmc ${mmcdev}:${mmcpart} ${loadaddr} ${script};\0" \
