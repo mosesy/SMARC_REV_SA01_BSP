@@ -21,8 +21,8 @@
 #include <imx_thermal.h>
 
 #if defined(CONFIG_MX6)
-#define TEMPERATURE_MIN		-40
-#define TEMPERATURE_HOT		80
+#define TEMPERATURE_MIN		-45
+#define TEMPERATURE_HOT		100
 #define TEMPERATURE_MAX		125
 #define FACTOR0			10000000
 #define FACTOR1			15423
