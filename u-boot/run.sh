@@ -67,7 +67,12 @@ case "$1" in
         INSTALL_NAME=u-boot-6q-wm8326-2g-e14s6104g58h.imx
         ;;
 
-    *)
+	"d-p-1g-e14s6102g51h")
+		CONFIG_FILE=mx6dsmarc_pfuze100_1g_e14s6102g51h_defconfig
+		INSTALL_NAME=u-boot-6d-pfuze100-1g-e14s6102g51h.imx
+		;;
+
+	*)
         echo 'Input argument error!'
         exit 255
         ;;

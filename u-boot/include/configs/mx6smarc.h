@@ -23,7 +23,7 @@
 #define CONFIG_CONSOLE_DEV		"ttymxc0"
 #define CONFIG_MMCROOT			"/dev/mmcblk2p2"  /* SDHC3 */
 
-#if defined(CONFIG_SMARC_PCIE_PFUZE100)
+#if defined(CONFIG_SMARC_PFUZE100)
     #if defined(CONFIG_MX6Q)
         #define CONFIG_DEFAULT_FDT_FILE "imx6q-rev-sa01-pfuze100.dtb"
         #define PHYS_SDRAM_SIZE         (1u * 1024 * 1024 * 1024)
@@ -38,7 +38,7 @@
 
     #endif
 
-#elif defined(CONFIG_SMARC_PCIE_WM8326)
+#elif defined(CONFIG_SMARC_WM8326)
     #if defined(CONFIG_MX6Q)
         #define CONFIG_DEFAULT_FDT_FILE	"imx6q-rev-sa01-wm8326.dtb"
         #define PHYS_SDRAM_SIZE         (1u * 1024 * 1024 * 1024)
@@ -53,16 +53,18 @@
 
     #endif
 
-#elif defined(CONFIG_SMARC_PCIE_PFUZE100_2G)
+#elif defined(CONFIG_SMARC_PFUZE100_2G)
     #if defined(CONFIG_MX6Q)
         #define CONFIG_DEFAULT_FDT_FILE "imx6q-rev-sa01-pfuze100.dtb"
         #define PHYS_SDRAM_SIZE         (2u * 1024 * 1024 * 1024)
+
     #endif
 
-#elif defined(CONFIG_SMARC_PCIE_WM8326_2G)
+#elif defined(CONFIG_SMARC_WM8326_2G)
     #if defined(CONFIG_MX6Q)
         #define CONFIG_DEFAULT_FDT_FILE	"imx6q-rev-sa01-wm8326.dtb"
         #define PHYS_SDRAM_SIZE         (2u * 1024 * 1024 * 1024)
+
     #endif
 
 #endif
